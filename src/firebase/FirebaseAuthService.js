@@ -31,6 +31,7 @@ const subscribeToAuthChanges = (handleAuthChange) => {
 };
 
 const FirebaseAuthService = {
+  registerUser,
   loginUser,
   logoutUser,
   sendPasswordResetEmail,
