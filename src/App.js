@@ -1,26 +1,19 @@
-import logo from "./logo.svg";
+import { useState } from "react";
+import FirebaseAuthService from "./firebase/FirebaseAuthService";
+import LoginForm from "./components/LoginForm";
+
 import "./App.css";
 
-// eslint-disable-next-line no-unused-vars
-import firebase from "./firebase/FirebaseConfig";
-
 function App() {
+  const [user, setUser] = useState(null);
+
+  FirebaseAuthService.subscribeToAuthChanges(setUser);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="title-row">
+        <h1 className="title">Fecipes</h1>
+        <LoginForm existingUser={user}></LoginForm>
+      </div>
     </div>
   );
 }

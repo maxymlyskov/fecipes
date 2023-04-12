@@ -30,11 +30,12 @@ const subscribeToAuthChanges = (handleAuthChange) => {
   });
 };
 
-export {
-  registerUser,
+const FirebaseAuthService = {
   loginUser,
   logoutUser,
   sendPasswordResetEmail,
   loginWithGoogle,
   subscribeToAuthChanges,
 };
+
+export default FirebaseAuthService;
